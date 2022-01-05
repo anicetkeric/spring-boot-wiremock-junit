@@ -7,6 +7,7 @@ import org.springframework.data.mongodb.core.mapping.Document;
 
 import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
+import java.util.List;
 
 /**
  * <h2>Invoice</h2>
@@ -35,4 +36,6 @@ public class Invoice {
     private double amount;
 
     private Customer customer;
+
+    private List<String> paymentIds;
 }
