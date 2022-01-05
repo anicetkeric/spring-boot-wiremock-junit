@@ -12,13 +12,13 @@ import java.util.List;
 @FeignClient(name = "customerClient", url ="${service.api.client.customer}")
 public interface CustomerClient {
 
-    @GetMapping(path="/api/customers/{id}")
+    @GetMapping(path="/customers/{id}")
     Customer customerById(@PathVariable String id);
 
-    @GetMapping(path="/api/customers/{code}")
+    @GetMapping(path="/customers/code/{code}")
     Customer customerByCode(@PathVariable String code);
 
-    @GetMapping(path="/api/customers")
+    @GetMapping(path="/customers")
     List<Customer> customers();
 
 }

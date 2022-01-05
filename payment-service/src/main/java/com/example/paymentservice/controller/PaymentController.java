@@ -7,6 +7,8 @@ import org.springframework.http.ResponseEntity;
 import org.springframework.web.bind.annotation.*;
 
 import java.time.LocalDate;
+import java.util.Random;
+import java.util.UUID;
 
 @RestController
 @RequestMapping(path = "/api")
@@ -14,12 +16,12 @@ import java.time.LocalDate;
 public class PaymentController {
 
     @PostMapping(path = "/payment")
-    public ResponseEntity<Void> save(@RequestBody Payment payment){
+    public ResponseEntity<String> save(@RequestBody Payment payment){
 
         if(payment.getAmount() > 0 || (payment.getCardExpiryDate().isAfter(LocalDate.now()))){
-            return new ResponseEntity<>(HttpStatus.OK);
+            return new ResponseEntity<>(UUID.randomUUID().toString(), HttpStatus.CREATED);
         }else {
-            return new ResponseEntity<>(HttpStatus.BAD_GATEWAY);
+            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
         }
 
     }
