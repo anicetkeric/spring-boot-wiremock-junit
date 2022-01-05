@@ -5,6 +5,7 @@ import lombok.experimental.SuperBuilder;
 import org.springframework.data.annotation.Id;
 import org.springframework.data.mongodb.core.mapping.Document;
 
+import javax.validation.constraints.NotNull;
 import java.time.LocalDateTime;
 
 /**
@@ -12,7 +13,7 @@ import java.time.LocalDateTime;
  *
  * Description: invoice
  */
-@SuperBuilder
+@Builder
 @Data
 @NoArgsConstructor
 @AllArgsConstructor
@@ -24,8 +25,12 @@ public class Invoice {
     @Id
     private String id;
 
+    @NotNull
+    private String number;
 
     private LocalDateTime createdDate;
+
+    private LocalDateTime dueDate;
 
     private double amount;
 
