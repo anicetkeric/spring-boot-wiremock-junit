@@ -16,6 +16,7 @@
     <properties>
         <java.version>11</java.version>
         <spring-cloud.version>2021.0.0</spring-cloud.version>
+        <wiremock.version>2.32.0</wiremock.version>
     </properties>
     <dependencies>
         <dependency>
@@ -39,10 +40,16 @@
         </dependency>
 
 
-        <!-- mongo unit testing-->
+        <!-- MongoDB Unit testing with Embedded MongoDB-->
         <dependency>
             <groupId>de.flapdoodle.embed</groupId>
             <artifactId>de.flapdoodle.embed.mongo</artifactId>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.github.tomakehurst</groupId>
+            <artifactId>wiremock-jre8</artifactId>
+            <version>${wiremock.version}</version>
             <scope>test</scope>
         </dependency>
         <dependency>

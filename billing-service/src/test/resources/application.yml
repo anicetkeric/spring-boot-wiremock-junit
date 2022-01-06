@@ -1,0 +1,30 @@
+spring:
+  profiles:
+    active: test
+  application:
+    name: wiremock-junit
+  jackson:
+    serialization:
+      write-durations-as-timestamps: false
+  data:
+    mongodb:
+      host: localhost
+      port: 0
+      database: mongorad
+  main:
+    allow-bean-definition-overriding: true
+
+  mongodb:
+    embedded:
+      version: 3.5.5
+
+server:
+  port: 10344
+  address: localhost
+
+
+service:
+  api:
+    client:
+      customer: http://localhost:8989/api
+      payment: http://localhost:8989/api

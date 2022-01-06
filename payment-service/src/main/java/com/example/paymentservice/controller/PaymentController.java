@@ -21,7 +21,7 @@ public class PaymentController {
         if(payment.getAmount() > 0 || (payment.getCardExpiryDate().isAfter(LocalDate.now()))){
             return new ResponseEntity<>(UUID.randomUUID().toString(), HttpStatus.CREATED);
         }else {
-            return new ResponseEntity<>(null,HttpStatus.BAD_REQUEST);
+            return new ResponseEntity<>(HttpStatus.BAD_REQUEST);
         }
 
     }
