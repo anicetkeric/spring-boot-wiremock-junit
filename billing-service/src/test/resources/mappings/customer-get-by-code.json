@@ -1,0 +1,19 @@
+{
+  "request": {
+    "method": "GET",
+    "urlPath": "/api/customers/code/CUST01"
+  },
+  "response": {
+    "status": 200,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "id": 1,
+      "code": "CUST01",
+      "lastname": "Mesh",
+      "firstname": "Mateo",
+      "email": "m@gmail.com"
+    }
+  }
+}

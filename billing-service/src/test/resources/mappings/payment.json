@@ -1,0 +1,18 @@
+{
+  "request": {
+    "method": "POST",
+    "urlPath": "/api/payment"
+  },
+  "response": {
+    "status": 201,
+    "headers": {
+      "Content-Type": "application/json"
+    },
+    "jsonBody": {
+      "amount": 500,
+      "cardNumber": "4012888888881881",
+      "cardExpiryDate": "2016-01-25T21:34:55",
+      "customerNumber": "CUST01"
+    }
+  }
+}

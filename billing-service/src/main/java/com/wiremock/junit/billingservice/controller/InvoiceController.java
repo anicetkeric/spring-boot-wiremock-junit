@@ -40,24 +40,22 @@ public class InvoiceController {
     public ResponseEntity<Invoice> create(@RequestBody InvoiceRequestDTO invoicePost) {
 
         Customer customer = customerClient.customerByCode(invoicePost.getCustomerCode());
-        if (customer != null){
-            Invoice invoice = Invoice.builder()
-                    .dueDate(invoicePost.getDueDate())
-                    .amount(invoicePost.getAmount())
-                    .createdDate(LocalDateTime.now())
-                    .customer(customer)
-                    .number(RandomStringUtils.randomAlphanumeric(10))
-                    .build();
-            Invoice invoiceCreated = invoiceService.save(invoice);
-            return new ResponseEntity<>(invoiceCreated, HttpStatus.CREATED);
-        }
-        throw new RuntimeException("Customer not found");
+        Invoice invoice = Invoice.builder()
+                .dueDate(invoicePost.getDueDate())
+                .amount(invoicePost.getAmount())
+                .createdDate(LocalDateTime.now())
+                .customer(customer)
+                .number(RandomStringUtils.randomAlphanumeric(10))
+                .build();
+        Invoice invoiceCreated = invoiceService.save(invoice);
+
+        return new ResponseEntity<>(invoiceCreated, HttpStatus.CREATED);
     }
 
     @PostMapping("/payment")
     public ResponseEntity<Void> savePayment(@RequestBody PaymentRequestDTO paymentRequestDTO) {
 
-       Optional<Invoice> invoiceOptional = invoiceService.getById(paymentRequestDTO.getInvoiceId());
+        Optional<Invoice> invoiceOptional = invoiceService.getById(paymentRequestDTO.getInvoiceId());
         if (invoiceOptional.isPresent()){
             Invoice invoice =  invoiceOptional.get();
 

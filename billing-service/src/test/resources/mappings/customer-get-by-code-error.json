@@ -1,0 +1,38 @@
+{
+  "mappings": [
+    {
+      "scenarioName": "error customer scenario",
+      "requiredScenarioState": "Started",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/customers/code/CUST02"
+      },
+      "response": {
+        "status": 404
+      }
+    },
+    {
+      "scenarioName": "error customer scenario",
+      "requiredScenarioState": "Started",
+      "newScenarioState": "404 customer scenario",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/customers/code/CUST03"
+      },
+      "response": {
+        "status": 400
+      }
+    },
+    {
+      "scenarioName": "error customer scenario",
+      "requiredScenarioState": "404 customer scenario",
+      "request": {
+        "method": "GET",
+        "urlPath": "/api/customers/code/CUST04"
+      },
+      "response": {
+        "status": 401
+      }
+    }
+  ]
+}
